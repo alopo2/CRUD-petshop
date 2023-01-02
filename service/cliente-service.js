@@ -28,13 +28,5 @@ http.onload = () => {
     data.forEach(elemento => {
         tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email))
     })
-    const http2 = new XMLHttpRequest()
-    http2.open('GET', 'http://localhost:3000/profile/semanaPassada')
-    http2.onload = () => {
-        const data = JSON.parse(http.response)
-        data.forEach(elemento => {
-            tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email))
-        })
-    }
-    http2.send()
+
 }
