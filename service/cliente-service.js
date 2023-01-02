@@ -34,3 +34,10 @@ const listaClientes = () => {
     })
     return promise
 }
+
+listaClientes()
+    .then(data => {
+        data.forEach(elemento => {
+            tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email))
+        })
+    })
