@@ -17,17 +17,19 @@ const criaNovaLinha = (nome, email) => {
 const tabela = document.querySelector('[data-tabela]')
 
 const listaClientes = () => {
-    const http = new XMLHttpRequest();
+    const promise = new Promise((resolve, reject) => {
+        const http = new XMLHttpRequest();
 
-    http.open('GET', 'http://localhost:3000/profile')
+        http.open('GET', 'http://localhost:3000/profile')
 
-    http.send()
+        http.send()
 
-    http.onload = () => {
-        const data = JSON.parse(http.response)
-        data.forEach(elemento => {
-            tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email))
-        })
+        http.onload = () => {
+            const data = JSON.parse(http.response)
+            data.forEach(elemento => {
+                tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email))
+            })
 
-    }
+        }
+    })
 }
