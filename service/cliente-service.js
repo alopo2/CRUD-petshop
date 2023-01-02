@@ -25,11 +25,12 @@ const listaClientes = () => {
         http.send()
 
         http.onload = () => {
-            const data = JSON.parse(http.response)
-            data.forEach(elemento => {
-                tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email))
-            })
-
+            if (http.status >= 400) {
+                reject(JSON.pase(http.response))
+            } else {
+                resolve(JSON.pase(http.response))
+            }
         }
     })
+    return promise
 }
