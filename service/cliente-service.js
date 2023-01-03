@@ -22,5 +22,6 @@ const criaCliente = (nome, email) => {
 }
 
 export const clienteService = {
-    listaClientes
+    listaClientes,
+    criaCliente
 }
